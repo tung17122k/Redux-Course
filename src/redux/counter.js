@@ -1,5 +1,6 @@
 const INCREMENT = "increment";
 const DECREMENT = "decrement";
+const INCREASE = "increase";
 
 // stage
 
@@ -11,6 +12,10 @@ export const increment = () => ({
 });
 export const decrement = () => ({
   type: DECREMENT,
+});
+export const increase = (value) => ({
+  type: INCREASE,
+  payload: value,
 });
 
 function counterReducer(state = initialState, action) {
@@ -24,6 +29,11 @@ function counterReducer(state = initialState, action) {
       return {
         ...state,
         count: state.count - 1,
+      };
+    case INCREASE:
+      return {
+        ...state,
+        count: state.count + action.payload,
       };
 
     default:

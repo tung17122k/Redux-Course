@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../redux/counter";
+// import { decrement, increase, increment } from "../redux/counter";
+import { decrement, increment, increase } from "../redux-toolkit/counterSlice";
 
 const Counter = (props) => {
   const count = useSelector((state) => state.counter.count);
@@ -9,6 +10,9 @@ const Counter = (props) => {
   };
   const handleDecrement = () => {
     dispatch(decrement());
+  };
+  const handleIncreaseByValue = () => {
+    dispatch(increase(10));
   };
 
   const dispatch = useDispatch();
@@ -27,6 +31,12 @@ const Counter = (props) => {
           onClick={handleIncrement}
         >
           Increment
+        </button>
+        <button
+          className="inline-block p-2 border border-gray-300"
+          onClick={handleIncreaseByValue}
+        >
+          Increase by 10
         </button>
       </div>
     </div>
