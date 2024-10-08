@@ -22,5 +22,6 @@ store.subscribe(() => {
   // js observer pattern
   console.log(`current state : ${store.getState().counter.count}`);
 });
+// abc
 
 export default store;
