@@ -7,15 +7,18 @@ import { toggleDarkMode } from "./redux-toolkit/globalSlice";
 import useDarkMode from "./hooks/useDarkMode";
 import Sidebar from "./uis/Sidebar";
 import ButtonToggle from "./uis/ButtonToggle";
+import HackerNews from "./components/HackerNews";
+import { getNews } from "./sagas/news/newsSlice";
 
 function App() {
   // const [count, setCount] = useState(0);
+  // Generator function
 
-  const { count } = useSelector((state) => state.counter);
+  // const { count } = useSelector((state) => state.counter);
 
   return (
     <div className="App">
-      <h2> The count from App is {count}</h2>
+      {/* <h2> The count from App is {count}</h2>
       <Counter></Counter>
       <div className="text">
         <Card></Card>
@@ -24,27 +27,30 @@ function App() {
       <div>
         <Sidebar></Sidebar>
         <ButtonToggle></ButtonToggle>
+      </div> */}
+      <div>
+        <HackerNews></HackerNews>
       </div>
     </div>
   );
 }
 
-function SwitchDarkMode() {
-  const globalOptions = useSelector((state) => state.global);
-  console.log("🚀 ~ SwitchDarkMode ~ globalOptions:", globalOptions);
-  const dispatch = useDispatch();
-  const [darkMode, setDarkMode] = useDarkMode();
+// function SwitchDarkMode() {
+//   const globalOptions = useSelector((state) => state.global);
+//   // console.log("🚀 ~ SwitchDarkMode ~ globalOptions:", globalOptions);
+//   const dispatch = useDispatch();
+//   const [darkMode, setDarkMode] = useDarkMode();
 
-  useEffect(() => {
-    dispatch(toggleDarkMode(darkMode));
-  }, []);
+//   useEffect(() => {
+//     dispatch(toggleDarkMode(darkMode));
+//   }, []);
 
-  const handleToggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    dispatch(toggleDarkMode(!darkMode));
-  };
+//   const handleToggleDarkMode = () => {
+//     setDarkMode(!darkMode);
+//     dispatch(toggleDarkMode(!darkMode));
+//   };
 
-  return <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button>;
-}
+//   return <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button>;
+// }
 
 export default App;
